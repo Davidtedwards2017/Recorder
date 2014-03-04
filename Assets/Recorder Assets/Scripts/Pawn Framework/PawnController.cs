@@ -4,12 +4,21 @@ using StageFramework;
 
 namespace PawnFramework
 {
+
+	public enum PawnTypeEnum { NONE, HUSK, DRIVER, MIMIC };
 	// Require a character controller to be attached to the same game object
 	[RequireComponent(typeof(CharacterMotor))]
 	[AddComponentMenu("Character/Platform Input Controller")]
-	public abstract class PawnController : MonoBehaviour {
+	public class PawnController : MonoBehaviour {
 
-		public float LifeTime = 10;
+		public int TimeIndex;
+		public PawnType pawnType;
+		public PlayerInfo playerInfo;
+		public Station station;
+		public int killCount = 0;
+
+		public float EndLifeTime = 10;
+		public float CurrentLifeTime = 0;
 		public Record Recording;
 		public bool bPlaying;
 		public bool autoRotate = true;
@@ -20,12 +29,20 @@ namespace PawnFramework
 		protected CharacterMotor motor;
 
 		#region Event declaration
-		public delegate void PawnDeathEventHandler(PawnController pawn, GameObject killedBy);
+		public delegate void PawnDeathEventHandler(PawnController pawn, PawnController killedBy);
+		public delegate void LifeTimeExausedEventHandler(PawnController pawn);
 		public event PawnDeathEventHandler PawnDeathEvent;
-		void onPawnDeath(PawnController pawn, GameObject killedBy) 
+		public event LifeTimeExausedEventHandler LifeTimeExausedEvent;
+
+		void onPawnDeath(PawnController pawn, PawnController killedBy) 
 		{ 
 			if(PawnDeathEvent != null) 
 				PawnDeathEvent(pawn, killedBy); 
+		}
+		void onLifeTimeExausted()
+		{
+			if(LifeTimeExausedEvent != null)
+				LifeTimeExausedEvent(this);
 		}
 		#endregion
 		// Use this for initialization
@@ -35,11 +52,6 @@ namespace PawnFramework
 			motor.SetControllable(false);
 
 			gun = GetComponentInChildren<Gun>();
-
-			//gameObject.layer = GameInfo.GetTeamPawnLayerMask(team);
-			//ignore collisions from projectiles spawned from your team
-			//Physics.IgnoreCollision(
-
 		}
 
 		// Update is called once per frame
@@ -74,6 +86,7 @@ namespace PawnFramework
 			directionVector = (camToCharacterSpace * directionVector);
 			
 			// Apply the direction to the CharacterMotor
+			//directionVector.z = 0; //clamp for 2d movement
 			motor.inputMoveDirection = directionVector;
 			motor.inputJump = GetJump();
 			
@@ -89,16 +102,31 @@ namespace PawnFramework
 
 			if(GetFire())
 				gun.FireGun();
+
+			if(bPlaying && GetPawnType() != PawnTypeEnum.HUSK)
+			{
+				TimeIndex += 1;
+
+				CurrentLifeTime += Time.deltaTime;
+
+				if(CurrentLifeTime >= EndLifeTime || (pawnType.pawnTypeEnum == PawnTypeEnum.MIMIC && TimeIndex >= Recording.Length))
+				{
+					LifeTimeEnded();
+				}
+			}
+
 		}
 
 		void OnCollisionEnter(Collision collision) 
 		{
 			if(collision.gameObject.tag.Equals("Projectile"))
 			{
-				DespawnPawn();
-				Destroy(collision.gameObject);
-			}
+				Bullet bullet = collision.gameObject.GetComponent<Bullet>();
 
+				onPawnDeath(this, bullet.owner);
+				Destroy(collision.gameObject);
+				Destroy(gameObject);
+			}
 		}
 		
 		Vector3 ProjectOntoPlane(Vector3 v, Vector3 normal)
@@ -110,19 +138,6 @@ namespace PawnFramework
 		{
 			float value = Mathf.Min(1, angle / Vector3.Angle(from, to));
 			return Vector3.Slerp(from, to, value);
-		}
-
-		void OnDestroy() 
-		{
-			DespawnPawn();
-		}
-
-		protected void DespawnPawn()
-		{
-			onPawnDeath(this, null);
-
-			//TODO: display despawn effects
-			Destroy(gameObject);
 		}
 
 		public virtual void SetPlayable(bool value)
@@ -138,10 +153,89 @@ namespace PawnFramework
 			transform.GetComponentInChildren<Renderer> ().material.color = GameInfo.GetTeamColor(team);
 		}
 
-		public abstract bool isRecordedPawn();
-		public abstract Vector3 GetDirectionVector();
-		public abstract Vector3 GetAimDirection();
-		public abstract bool GetJump();
-		public abstract bool GetFire();
+		public bool isRecordedPawn()
+		{
+			return pawnType.isRecordedPawn();
+		}
+		private Vector3 GetDirectionVector()
+		{
+			return pawnType.GetDirectionVector(TimeIndex);
+		}
+		private Vector3 GetAimDirection()
+		{
+			return pawnType.GetAimDirection(TimeIndex);
+		}
+		private bool GetJump()
+		{
+			return pawnType.GetJump(TimeIndex);
+		}
+		private bool GetFire()
+		{
+			return pawnType.GetFire(TimeIndex);
+		}
+
+		private void LifeTimeEnded()
+		{
+			bPlaying = false;
+			//ChangePawnType(PawnTypeEnum.HUSK);
+			playerInfo = null;
+			onLifeTimeExausted();
+		}
+
+		public void ChangePawnType(PawnTypeEnum type)
+		{
+			Component.Destroy(gameObject.GetComponent<PawnType>());
+
+			switch (type)
+			{
+			case PawnTypeEnum.DRIVER:
+				pawnType = gameObject.AddComponent<Driver>();
+
+				if(Recording == null)
+					Recording = new Record();
+
+				break;
+			case PawnTypeEnum.MIMIC:
+				pawnType = gameObject.AddComponent<Mimic>();
+				TimeIndex = 0;
+				CurrentLifeTime = 0;
+				break;
+			case PawnTypeEnum.HUSK:
+				pawnType = gameObject.AddComponent<Husk>();
+				SetTeam(0);
+				SetPlayable(false);
+
+				if(Recording == null)
+					Recording = new Record();
+
+				TimeIndex = Recording.Length;
+
+				break;
+			}
+		}
+
+		public void PossessPawn(PlayerInfo playerInfo)
+		{
+			//TODO
+
+			this.playerInfo = playerInfo;
+			SetTeam(playerInfo.team);
+		}
+
+		public PawnTypeEnum GetPawnType()
+		{
+			if( pawnType == null)
+				return PawnTypeEnum.NONE;
+
+			return pawnType.pawnTypeEnum;
+		}
+
+		public void AddTime(float amount)
+		{
+			if(GetPawnType() == PawnTypeEnum.DRIVER)
+				EndLifeTime+= amount;
+
+			//if(EndLifeTime 
+		}
 	}
 }

@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) 
 	{
-		ProjectileHit( collision.gameObject, collision.contacts[0].point, collision.contacts[0].normal);
+		ProjectileHit(collision.gameObject, collision.contacts[0].point, collision.contacts[0].normal);
 	}
 
 	void UpdateTrajectory()

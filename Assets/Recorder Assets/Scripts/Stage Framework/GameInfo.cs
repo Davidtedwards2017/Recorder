@@ -7,8 +7,11 @@ namespace StageFramework
 	[RequireComponent(typeof(GameStateManager))]
 	public class GameInfo : MonoBehaviour {
 
+		public const string TEAM_0_PAWN_LAYERMASK = "Team0_PawnLayerMask";
 		public const string TEAM_1_PAWN_LAYERMASK = "Team1_PawnLayerMask";
 		public const string TEAM_2_PAWN_LAYERMASK = "Team2_PawnLayerMask";
+
+		public const string TEAM_0_PROJ_LAYERMASK = "Team0_ProjLayerMask";
 		public const string TEAM_1_PROJ_LAYERMASK = "Team1_ProjLayerMask";
 		public const string TEAM_2_PROJ_LAYERMASK = "Team2_ProjLayerMask";
 
@@ -20,6 +23,7 @@ namespace StageFramework
 		void Awake()
 		{
 			GSM = GetComponent<GameStateManager>();
+			CurrentGameMode = GetComponent<GameMode>();
 		}
 
 		void Start () {
@@ -32,10 +36,15 @@ namespace StageFramework
 		
 		}
 
-
-		public GameObject[] GetStations()
+		public Station[] GetStations()
 		{
-			return GameObject.FindGameObjectsWithTag("Station");
+			GameObject[] objects = GameObject.FindGameObjectsWithTag("Station");
+			Station[] stations = new Station[objects.Length];
+
+			for( int i = 0; i < objects.Length; i++)
+				stations[i] = objects[i].GetComponent<Station>();
+
+			return stations;
 		}
 
 		public PawnController[] GetPawns()
@@ -64,6 +73,8 @@ namespace StageFramework
 		{
 			switch (team)
 			{
+			case 0:
+				return LayerMask.NameToLayer(TEAM_0_PROJ_LAYERMASK);
 			case 1:
 				return LayerMask.NameToLayer(TEAM_1_PROJ_LAYERMASK);
 			case 2:
@@ -77,6 +88,8 @@ namespace StageFramework
 		{
 			switch (team)
 			{
+			case 0:
+				return LayerMask.NameToLayer(TEAM_0_PAWN_LAYERMASK);
 			case 1:
 				return LayerMask.NameToLayer(TEAM_1_PAWN_LAYERMASK);
 			case 2:
@@ -90,12 +103,14 @@ namespace StageFramework
 		{
 			switch (team)
 			{
+			case 0:
+				return Color.grey;
 			case 1:
 				return Color.red;
 			case 2:
 				return Color.blue;
 			default:
-				return Color.gray;
+				return Color.grey;
 			}
 		}
 

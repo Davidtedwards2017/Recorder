@@ -19,6 +19,11 @@ namespace PawnFramework
 			get { return m_Records.Count; }
 		}
 	
+		public void AddRecordData()
+		{
+			m_Records.Add(new RecordData(Vector3.zero, Vector3.zero, false, false));
+		}
+
 		public void AddRecordData(Vector3 directionVector, Vector3 aimDirection, bool jump, bool fire)
 		{
 			m_Records.Add(new RecordData(directionVector, aimDirection, jump, fire));
@@ -32,6 +37,7 @@ namespace PawnFramework
 			return m_Records[index] as RecordData;
 		}
 
+	
 	}
 
 	public class RecordData

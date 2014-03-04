@@ -102,8 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d128546e5212b44290f4d0b9ffa06f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecordingLifeTime: 0
   PawnPrefab: {fileID: 400002, guid: 4fd2977a696fc8749858a74402af0989, type: 2}
   TimeBombPrefab: {fileID: 400002, guid: 8edb14d0fa4e598418d24b36026fd005, type: 2}
+  PawnCtrl: {fileID: 0}
+  RespawnTime: 5
+  KillAwardAmount: 1
+  AwardDecayPercent: .75
+  AutoSpawn: 1
 --- !u!4 &35895292
 Transform:
   m_ObjectHideFlags: 0
@@ -252,8 +258,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d128546e5212b44290f4d0b9ffa06f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecordingLifeTime: 0
   PawnPrefab: {fileID: 400002, guid: 4fd2977a696fc8749858a74402af0989, type: 2}
   TimeBombPrefab: {fileID: 400002, guid: 8edb14d0fa4e598418d24b36026fd005, type: 2}
+  PawnCtrl: {fileID: 0}
+  RespawnTime: 5
+  KillAwardAmount: 1
+  AwardDecayPercent: .75
+  AutoSpawn: 1
 --- !u!4 &378746604
 Transform:
   m_ObjectHideFlags: 0
@@ -431,8 +443,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d128546e5212b44290f4d0b9ffa06f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecordingLifeTime: 0
   PawnPrefab: {fileID: 400002, guid: 4fd2977a696fc8749858a74402af0989, type: 2}
   TimeBombPrefab: {fileID: 400002, guid: 8edb14d0fa4e598418d24b36026fd005, type: 2}
+  PawnCtrl: {fileID: 0}
+  RespawnTime: 5
+  KillAwardAmount: 2
+  AwardDecayPercent: .899999976
+  AutoSpawn: 1
 --- !u!4 &478834610
 Transform:
   m_ObjectHideFlags: 0
@@ -513,6 +531,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534911939}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &560930381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 560930382}
+  m_Layer: 0
+  m_Name: ScoreDisplayAnchor1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &560930382
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 560930381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.4000001, y: 18.8531189, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1001 &575412958
 Prefab:
   m_ObjectHideFlags: 0
@@ -563,10 +607,11 @@ GameObject:
   - 4: {fileID: 581944408}
   - 114: {fileID: 581944407}
   - 114: {fileID: 581944406}
+  - 114: {fileID: 581944410}
   - 114: {fileID: 581944409}
   m_Layer: 0
   m_Name: Core
-  m_TagString: Untagged
+  m_TagString: GameInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4647b08d69a9bee40b62194766e0f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGameMode: {fileID: 581944409}
+  CurrentGameMode: {fileID: 0}
   GSM: {fileID: 0}
 --- !u!114 &581944407
 MonoBehaviour:
@@ -614,20 +659,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 581944405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b640261888a3404d876556b7ed3cfec, type: 3}
+  m_Script: {fileID: 11500000, guid: 32746272e506a3144b5c0f211ea5b0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartingLifes: 0
   MaxLifeTime: 10
-  BaseLifeTime: 10
+  BaseLifeTime: 5
   RoundTimeLimit: 0
-  TimeBombLifeTime: 5
-  StartRoundCountDownSequenceTime: 3
+  TimeBombLifeTime: 0
+  StartRoundCountDownSequenceTime: 0
   FriendlyFire: 0
   CurrentRound: 0
-  NumberOfRounds: -1
-  NumberOfTeams: 2
-  NumberOfPlayers: 0
+  NumberOfRounds: 1
+  NumberOfTeams: 1
+  NumberOfPlayers: 1
+--- !u!114 &581944410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 581944405}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae5d1b9443c4954a985a83c786a7603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxScore: 0
+  ScoreContainerPrefab: {fileID: 400000, guid: 32a46d1158350d540a4a08521086e39d, type: 2}
+  ScoreDisplayAnchors:
+  - {fileID: 560930382}
 --- !u!1 &637429529
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +1034,101 @@ Prefab:
   m_RootGameObject: {fileID: 2062951441}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &997388030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 997388035}
+  - 33: {fileID: 997388034}
+  - 23: {fileID: 997388033}
+  - 114: {fileID: 997388032}
+  - 114: {fileID: 997388031}
+  m_Layer: 0
+  m_Name: AnimatedSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &997388031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997388030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e54113e5604435b8ae87c7754f2725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  library: {fileID: 11400000, guid: 18a39674a9b14f54b97497254e83b349, type: 2}
+  defaultClipId: 0
+  playAutomatically: 1
+--- !u!114 &997388032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997388030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fac570381f34f647b768dc5a5aa1364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collection: {fileID: 11400000, guid: b5aec6ebd1a8ffc458a2e46a3236acab, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _scale: {x: 1, y: 1, z: 1}
+  _spriteId: 5
+  boxCollider2D: {fileID: 0}
+  polygonCollider2D: []
+  edgeCollider2D: []
+  boxCollider: {fileID: 0}
+  meshCollider: {fileID: 0}
+  meshColliderPositions: []
+  meshColliderMesh: {fileID: 0}
+  renderLayer: 0
+--- !u!23 &997388033
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997388030}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 32286741c6a400a44a969d7d318b1ca5, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &997388034
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997388030}
+  m_Mesh: {fileID: 0}
+--- !u!4 &997388035
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997388030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1664750955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1313,14 @@ Prefab:
     - target: {fileID: 400000, guid: fe3e499453d469545a8800dcb87b8a51, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fe3e499453d469545a8800dcb87b8a51, type: 2}
+      propertyPath: AwardDecayPercent
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: fe3e499453d469545a8800dcb87b8a51, type: 2}
+      propertyPath: KillAwardAmount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe3e499453d469545a8800dcb87b8a51, type: 2}
@@ -1354,8 +1517,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d128546e5212b44290f4d0b9ffa06f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecordingLifeTime: 0
   PawnPrefab: {fileID: 400002, guid: 4fd2977a696fc8749858a74402af0989, type: 2}
   TimeBombPrefab: {fileID: 400002, guid: 8edb14d0fa4e598418d24b36026fd005, type: 2}
+  PawnCtrl: {fileID: 0}
+  RespawnTime: 5
+  KillAwardAmount: 1
+  AwardDecayPercent: .75
+  AutoSpawn: 1
 --- !u!4 &2062951443
 Transform:
   m_ObjectHideFlags: 0
