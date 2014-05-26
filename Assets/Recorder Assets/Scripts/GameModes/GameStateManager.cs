@@ -159,9 +159,11 @@ namespace StageFramework
 			case GameState.RoundEnd:
 				if(ShouldEndGame()) CurrentGameState = GameState.GameEnd;
 				else if(ShouldStartRound()) CurrentGameState = GameState.RoundStart;
+                if(ShouldStartGame()) CurrentGameState = GameState.GameStart;
 				break;
 			case GameState.GameEnd:
 				if(ShouldStartGame()) CurrentGameState = GameState.GameStart;
+                else if(ShouldStartRound()) CurrentGameState = GameState.RoundStart;
 				break;
 			default:
 				break;
@@ -178,7 +180,8 @@ namespace StageFramework
 		public void ReadyToStartGame()
 		{
 			if(CurrentGameState == GameState.Loaded ||
-			  	CurrentGameState == GameState.Paused)
+			  	CurrentGameState == GameState.Paused ||
+                CurrentGameState == GameState.RoundEnd)
 				bStartGame = true;
 		}
 		public void ReadyToStartRound()

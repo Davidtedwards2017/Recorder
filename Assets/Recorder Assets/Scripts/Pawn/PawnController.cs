@@ -18,6 +18,9 @@ public class PawnController : MonoBehaviour {
 	public int killCount = 0;
     public int NumberOfJumps = 2;
 
+    public AudioClip sfxExplosion;
+    public float sfxExplosionVolume;
+
 	public float ExplosionEffectDuration = 3;
 	public Transform ExplosionEffecPrefab;
 	//public float EndLifeTime = 10;
@@ -169,6 +172,7 @@ public class PawnController : MonoBehaviour {
             
             onPawnDeath(this, bullet.owner);
             PlayExplosionEffect();
+            AudioHelper.CreatePlayAudioObject(sfxExplosion,sfxExplosionVolume);
             
             Destroy(collision.gameObject);
             Destroy(gameObject);

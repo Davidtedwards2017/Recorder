@@ -7,6 +7,10 @@ namespace StageFramework
 
 	public class GM_Versus : GameMode 
 	{
+        void Awake()
+        {
+            EndRoundSummaryResourceName = "EndScoreDisplay_Versus";
+        }
 
 		protected override void InitiatePlayers()
 		{

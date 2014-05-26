@@ -6,28 +6,14 @@ public class PauseScript : MonoBehaviour {
 
 	private Transform PauseMenu;
 
-	public float DistanceFromCamera;
-
 	// Use this for initialization
 	void Start () {
 
 		PauseMenu = transform.FindChild("PauseMenu");
 		PauseMenu.gameObject.SetActive(false);
 
-		CenterPause();
-
 		GameStateManager.Instance.PausedEvent += onPause;
 		GameStateManager.Instance.UnpausedEvent += onUnpause;
-	}
-
-	private void CenterPause()
-	{
-		float x = Screen.width / 2;
-		float y = Screen.height /2;
-		
-		Ray ray = Camera.main.ScreenPointToRay(new Vector3(x,y));
-		
-		transform.position = (ray.direction * DistanceFromCamera) + Camera.main.transform.position;
 	}
 
 	public void PauseGame()

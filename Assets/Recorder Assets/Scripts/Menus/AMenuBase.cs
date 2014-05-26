@@ -8,6 +8,12 @@ public abstract class AMenuBase : MonoBehaviour {
     public int CurrentSelectionGroupIndex;
     public float SelectionInputCooldown = 0.2f;
 
+    public AudioClip sfxNavigation;
+    public float sfxNavigationVolume;
+
+    public AudioClip sfxConfirm;
+    public float sfxConfirmVolume;
+
     private float m_SelectCD;
     private GameObject m_CurrentSelectionGroup;
     
@@ -20,6 +26,8 @@ public abstract class AMenuBase : MonoBehaviour {
             {
                 return;
             }
+
+            AudioHelper.CreatePlayAudioObject(sfxNavigation,sfxNavigationVolume);
             
             SetSelectionGroupHighlight(m_CurrentSelectionGroup, false);
             SetSelectionGroupHighlight(value, true);
@@ -113,18 +121,23 @@ public abstract class AMenuBase : MonoBehaviour {
         CurrentSelectionGroup = SelectionGroups[CurrentSelectionGroupIndex];
     }
     
-    private void SelectRight()
+    protected virtual void SelectRight()
     {
-        CurrentSelectionGroup.GetComponent<SelectionGroup>().SelectNext();
     }
     
-    private void SelectLeft()
+    protected virtual void SelectLeft()
     {
-        CurrentSelectionGroup.GetComponent<SelectionGroup>().SelectPrev();
     }
 
-    protected abstract void SelectConfirmation();
-    protected abstract void SelectCancel();
+    protected virtual void SelectConfirmation()
+    {
+        AudioHelper.CreatePlayAudioObject(sfxConfirm,sfxConfirmVolume);
+    }
+
+    protected virtual void SelectCancel()
+    {
+        //AudioHelper.CreatePlayAudioObject(sfxFire,sfxFireVolume);
+    }
 
     private void SetSelectionGroupHighlight(GameObject selectionGroup, bool enable)
     {

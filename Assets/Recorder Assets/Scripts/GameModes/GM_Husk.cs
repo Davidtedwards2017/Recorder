@@ -9,6 +9,11 @@ namespace StageFramework
 
 	public class GM_Husk : GameMode {
 
+        void Awake()
+        {
+            EndRoundSummaryResourceName = "EndScoreDisplay_Husk";
+        }
+
 		protected override void InitiatePlayers()
 		{
             base.InitiatePlayers();

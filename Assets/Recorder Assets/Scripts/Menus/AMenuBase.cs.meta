@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 78f7c40715113b14da7c1448924d1893
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sfxNavigation: {fileID: 8300000, guid: 2b17cb68a6c8cc84a8bae0b83b8cd695, type: 3}
+  - sfxConfirm: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

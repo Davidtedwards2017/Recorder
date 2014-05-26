@@ -265,6 +265,8 @@ MonoBehaviour:
   station: {fileID: 0}
   killCount: 0
   NumberOfJumps: 2
+  sfxExplosion: {fileID: 8300000, guid: 827c0a858820367458799bae479d264a, type: 3}
+  sfxExplosionVolume: .5
   ExplosionEffectDuration: 3
   ExplosionEffecPrefab: {fileID: 400002, guid: 4ccf257e63181124a89c43a3b5b4a76c, type: 2}
   bPlaying: 0
