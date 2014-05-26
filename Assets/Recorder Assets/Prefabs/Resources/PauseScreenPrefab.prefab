@@ -141,6 +141,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 114: {fileID: 11400006}
+  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: PauseScreenPrefab
   m_TagString: Untagged
@@ -483,7 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656f151f67bd3a747aaa0506dd735d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceFromCamera: 15
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,6 +502,23 @@ MonoBehaviour:
   CurrentSelectionIndex: 0
   CurrentSelectionGroupIndex: 0
   SelectionInputCooldown: .200000003
+  sfxNavigation: {fileID: 8300000, guid: 2b17cb68a6c8cc84a8bae0b83b8cd695, type: 3}
+  sfxNavigationVolume: .699999988
+  sfxConfirm: {fileID: 0}
+  sfxConfirmVolume: 0
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814c8fc3d273c294fabdf8f5d72c73e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceFromCamera: 15
+  TransformOffset: {x: 0, y: 0, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

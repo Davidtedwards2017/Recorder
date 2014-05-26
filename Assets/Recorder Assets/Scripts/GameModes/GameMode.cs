@@ -39,6 +39,8 @@ public abstract class GameMode: MonoBehaviour
 
 	public PlayerInfo[] players;
 
+    protected string EndRoundSummaryResourceName;
+
 	public aRoundEndCondition RoundEndCondition;
 
     public GameObject EndScreen;
@@ -195,8 +197,10 @@ public abstract class GameMode: MonoBehaviour
 
         Instantiate(Resources.Load("End Screen"));
 
-
-		//GameStateManager.Instance.ReadyToStartRound();
+        if(!string.IsNullOrEmpty(EndRoundSummaryResourceName))
+        {
+            Instantiate(Resources.Load(EndRoundSummaryResourceName));
+        }
 	}
 
 	protected virtual void onPawnDeath(PawnController pawn, PawnController killedBy)
@@ -229,6 +233,7 @@ public abstract class GameMode: MonoBehaviour
 	public void RestartGame()
 	{
 		GameStateManager.Instance.ReadyToStartGame();
+        //GameStateManager.Instance.ReadyToStartRound();
 	}
 
 	private void WipePawns()
@@ -236,7 +241,10 @@ public abstract class GameMode: MonoBehaviour
 		// Clear all pawns
 		foreach(PawnController pawn in GameInfo.Instance.GetPawns())
 		{
-			Destroy(pawn.gameObject);
+            if(pawn != null)
+            {
+			    Destroy(pawn.gameObject);
+            }
 		}
 	}
 

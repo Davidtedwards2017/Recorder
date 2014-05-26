@@ -2,50 +2,39 @@
 using System.Collections;
 using StageFramework;
 
-public class EndScreenMenu : MenuScript {
+public class EndScreenMenu : AMenuBase {
 
+	protected override void Start () 
+    {
+        base.Start();
+        Time.timeScale = 0;
+    }
 
-    public MenuSelector Selector;
-	// Use this for initialization
-	void Start () {
-        //WinnerTextMesh = transform.FindChild("Winning Player").gameObject.GetComponent<tk2dTextMesh>();
-	}
+    void OnDestroy()
+    {
+        Time.timeScale = 1;
+    }
 	
-    private void DisplayWinnerInfo()
+    protected override void SelectConfirmation()
     {
-        //PlayerInfo winningPlayer = PlayerInfo.CreatePlayer(3,1);
-        //int Score = 2032321;
-        //WinnerTextMesh.text = winningPlayer.gameObject.name;
-        //WinnerTextMesh.color = GameInfo.GetTeamColor(winningPlayer.team);
-     }
-
-
-    protected override void MenuInput()
-    {
-        if(ConfirmationInput())
+        //get GameMode
+        string currentSelected =  SelectionGroups[CurrentSelectionGroupIndex].name;
+        
+        switch(currentSelected)
         {
-            //get current selection
-            switch(Selector.CurrentSelection.name)
-            {
-                case "Rematch":
-                    RematchOption();
-                    break;
-                case "Quit":
-                    QuitOption();
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-    
-    private void RematchOption()
-    {
-        Debug.Log("Rematch Selected");
-        GameStateManager.Instance.ReadyToStartRound();
+            case "Quit":
+                QuitOption();
+                break;
+            case "Rematch":
+                GameInfo.Instance.CurrentGameMode.RestartGame();
+                break;
+            default:
+                break;
 
-        Destroy(gameObject);
+        } 
+        Destroy(transform.root.gameObject);
     }
+
 
     private void QuitOption()
     {

@@ -9,13 +9,15 @@ public class HueShifter : MonoBehaviour {
     public float currentHue = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 
         currentHue = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
          
         HSBColor hsb = HSBColor.FromColor(renderer.material.color);
 

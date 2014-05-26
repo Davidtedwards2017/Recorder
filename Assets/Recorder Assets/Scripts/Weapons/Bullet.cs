@@ -35,11 +35,13 @@ public class Bullet : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
+        if(Time.timeScale == 0)
+            return;
 
 		RaycastHit hit;
-		if(Physics.Raycast(transform.position, m_Direction, out hit, speed * Time.deltaTime))
+		if(Physics.Raycast(transform.position, m_Direction, out hit, speed * Time.deltaTime + 0.1f))
         {
 			ProjectileHit( hit.collider.gameObject, hit.point, hit.normal);
         }

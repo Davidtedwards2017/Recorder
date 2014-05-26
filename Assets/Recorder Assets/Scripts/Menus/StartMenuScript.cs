@@ -34,6 +34,7 @@ public class StartMenuScript : AMenuBase {
 
    	protected override void SelectConfirmation()
 	{
+        //base.SelectConfirmation();
 		//get GameMode
 		string gameModeString =  SelectionGroups[0].GetComponent<SelectionGroup>().CurrentSelection as string;
 
@@ -47,8 +48,16 @@ public class StartMenuScript : AMenuBase {
 		}
 	}
 
-    protected override void SelectCancel()
+    protected override void SelectRight()
     {
+        AudioHelper.CreatePlayAudioObject(sfxNavigation,sfxNavigationVolume);
+        CurrentSelectionGroup.GetComponent<SelectionGroup>().SelectNext();
+    }
+    
+    protected override void SelectLeft()
+    {
+        AudioHelper.CreatePlayAudioObject(sfxNavigation,sfxNavigationVolume);
+        CurrentSelectionGroup.GetComponent<SelectionGroup>().SelectPrev();
     }
 
 }
