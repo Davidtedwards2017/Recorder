@@ -1,14 +1,65 @@
+VECTROSITY 3.0:
+
+• VectorLine.Draw and VectorLine.Draw3D no longer accept transforms being passed in. Instead, there is a new property, "drawTransform". So if you had code like this:
+
+	var line = new VectorLine("Line", points, null, 2.0);
+	line.Draw3D (transform);
+
+Replace it with this:
+
+	var line = new VectorLine("Line", points, null, 2.0);
+	line.drawTransform = transform;
+	line.Draw3D();
+
+This way you can always just use Draw or Draw3D for a particular line without having to remember to pass in the transform. Note that if you set drawTransform to null then the line won't be drawn with a transform anymore.
+
+• VectorLine.SetTextureScale has been removed. Instead, there are two new properties, "textureScale" and "textureOffset". So if you had code like this:
+
+	var line = new VectorLine("Line", points, null, 2.0);
+	line.SetTextureScale (1.0, 0.5);
+	line.Draw();
+
+Replace it with this:
+
+	var line = new VectorLine("Line", points, null, 2.0);
+	line.textureScale = 1.0;
+	line.textureOffset = 0.5;
+	line.Draw();
+
+This way you don't have to remember to use SetTextureScale every time you use Draw, and using Draw3DAuto will also automatically always have the correct texture scale. Note that if you change textureOffset it's not necessary to call Draw().
+
+• The DrawViewport function no longer exists. Instead, there is a new property "useViewportCoords". So if you had code like this:
+
+	var line = new VectorLine("Line", points, null, 2.0);
+	line.DrawViewport();
+
+Replace it with this:
+
+	var line = new VectorLine("Line", points, null, 2.0);
+	line.useViewportCoords = true;
+	line.Draw();
+
+This way, whether a line should be drawn with viewport coords is an inherent part of the line and doesn't require remembering to use a separate function.
+
+--
+
 VECTROSITY 2.3:
 
 VectorLine.Selected requires an additional index parameter to be passed in if the extraDistance parameter is used.
+
+--
 
 VECTROSITY 2.2:
 
 The location for the source code and .dll files is now the Plugins folder. If you have older files in Standard Assets or elsewhere, you should delete them since they will conflict with the new version.
 
+--
+
 VECTROSITY 2.1:
 
 The Vectrosity namespace should be imported now for any scripts using Vectrosity functions. That's "import Vectrosity;" for Unityscript and Boo, and "using Vectrosity;" for C#.
+
+--
 
 VECTROSITY 2.0:
 

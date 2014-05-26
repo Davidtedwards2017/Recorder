@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: gridtexture
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 68381818d7ef55a498e3aa6e95bd49a8, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -20,5 +20,100 @@ Material:
           m_Texture: {fileID: 2800000, guid: f63852486bfe52146a91cfd07d121c00, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
-    m_Colors: {}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Texture
+        second:
+          m_Texture: {fileID: 2800000, guid: 00c254830e3bf804e9961900cedf0958, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_115
+        second:
+          m_Texture: {fileID: 2800000, guid: dbdba3360649d514bbd1677cc99405b9, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_131
+        second:
+          m_Texture: {fileID: 2800000, guid: dbdba3360649d514bbd1677cc99405b9, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _GradiantTexture2
+        second:
+          m_Texture: {fileID: 2800000, guid: dbdba3360649d514bbd1677cc99405b9, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _GradiantTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: dbdba3360649d514bbd1677cc99405b9, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_758
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Gra1diantTexture2
+        second:
+          m_Texture: {fileID: 2800000, guid: dbdba3360649d514bbd1677cc99405b9, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _HorizontalGradiant
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _node_1021
+        second: 22.8571453
+    m_Colors:
+      data:
+        first:
+          name: _LightColor
+        second: {r: .0378460251, g: .20588237, b: .128237978, a: 1}
+      data:
+        first:
+          name: _Color
+        second: {r: .0454693027, g: .213235319, b: .095220603, a: .501960814}
+      data:
+        first:
+          name: _node_118
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _HorizontalColor
+        second: {r: 0, g: .793103218, b: 1, a: 1}
+      data:
+        first:
+          name: _node_328
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _GlowColor
+        second: {r: .75, g: .645220578, b: .645220578, a: 0}

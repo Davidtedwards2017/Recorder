@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: a1d6af28c2d2393478ad7b1a643f584c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - PawnCtrl: {instanceID: 0}
+  - MimicPawnMaterial: {fileID: 2100000, guid: e606ad8140e3d9a4d9c524618b786543, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

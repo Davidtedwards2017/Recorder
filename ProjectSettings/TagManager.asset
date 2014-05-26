@@ -4,6 +4,19 @@
 TagManager:
   tags:
   - 
+  - Station
+  - Wall
+  - GameInfo
+  - Pawn
+  - Gun
+  - Projectile
+  - Socket
+  - GameMode
+  - PawnModel
+  - Effect
+  - TimeIndicator
+  - Trail
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -12,12 +25,12 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: 
-  User Layer 9: 
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 8: Team0_PawnLayerMask
+  User Layer 9: Team1_PawnLayerMask
+  User Layer 10: Team2_PawnLayerMask
+  User Layer 11: Team0_ProjLayerMask
+  User Layer 12: Team1_ProjLayerMask
+  User Layer 13: Team2_ProjLayerMask
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
