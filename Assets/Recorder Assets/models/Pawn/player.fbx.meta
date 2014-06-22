@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 0819090aefb7bf74484a21fd65de2d56
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: BodyCtrl
+    100002: left_elbow_locator
+    100004: left_knee_locator
+    100006: leftArm
+    100008: leftArmIk
+    100010: leftFoot
+    100012: leftFootCtrl
+    100014: leftHand
+    100016: leftHandCtrl
+    100018: leftLeg
+    100020: leftLegIk
+    100022: leftShin
+    100024: leftWrist
+    100026: MainModel
+    100028: MainMoverCtrl
+    100030: //RootNode
+    100032: right_elbow_locator
+    100034: right_knee_locator
+    100036: rightArm
+    100038: rightArmIk
+    100040: rightFoot
+    100042: RightFootCtrl
+    100044: rightHand
+    100046: RightHandCtrl
+    100048: rightLeg
+    100050: rightLegIk
+    100052: rightShin
+    100054: rightWrist
+    100056: root
+    100058: shoulder
+    400000: BodyCtrl
+    400002: left_elbow_locator
+    400004: left_knee_locator
+    400006: leftArm
+    400008: leftArmIk
+    400010: leftFoot
+    400012: leftFootCtrl
+    400014: leftHand
+    400016: leftHandCtrl
+    400018: leftLeg
+    400020: leftLegIk
+    400022: leftShin
+    400024: leftWrist
+    400026: MainModel
+    400028: MainMoverCtrl
+    400030: //RootNode
+    400032: right_elbow_locator
+    400034: right_knee_locator
+    400036: rightArm
+    400038: rightArmIk
+    400040: rightFoot
+    400042: RightFootCtrl
+    400044: rightHand
+    400046: RightHandCtrl
+    400048: rightLeg
+    400050: rightLegIk
+    400052: rightShin
+    400054: rightWrist
+    400056: root
+    400058: shoulder
+    4300000: MainModel
+    7400000: Run
+    7400002: AimUp
+    7400004: AimUp45
+    7400006: AimForward
+    7400008: AimDown45
+    7400010: AimDown
+    9500000: //RootNode
+    13700000: MainModel
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainModel
+        weight: 1
+      - path: MainMoverCtrl
+        weight: 1
+      - path: MainMoverCtrl/BodyCtrl
+        weight: 1
+      - path: MainMoverCtrl/left_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/left_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/leftArmIk
+        weight: 1
+      - path: MainMoverCtrl/leftFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftLegIk
+        weight: 1
+      - path: MainMoverCtrl/right_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/right_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/rightArmIk
+        weight: 1
+      - path: MainMoverCtrl/RightFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/RightHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/rightLegIk
+        weight: 1
+      - path: MainMoverCtrl/root
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin/leftFoot
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin/rightFoot
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist/leftHand
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist/rightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimUp
+      takeName: Take 001
+      firstFrame: 32
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainModel
+        weight: 1
+      - path: MainMoverCtrl
+        weight: 1
+      - path: MainMoverCtrl/BodyCtrl
+        weight: 1
+      - path: MainMoverCtrl/left_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/left_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/leftArmIk
+        weight: 1
+      - path: MainMoverCtrl/leftFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftLegIk
+        weight: 1
+      - path: MainMoverCtrl/right_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/right_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/rightArmIk
+        weight: 1
+      - path: MainMoverCtrl/RightFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/RightHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/rightLegIk
+        weight: 1
+      - path: MainMoverCtrl/root
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin/leftFoot
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin/rightFoot
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist/leftHand
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist/rightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimUp45
+      takeName: Take 001
+      firstFrame: 34
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainModel
+        weight: 1
+      - path: MainMoverCtrl
+        weight: 1
+      - path: MainMoverCtrl/BodyCtrl
+        weight: 1
+      - path: MainMoverCtrl/left_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/left_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/leftArmIk
+        weight: 1
+      - path: MainMoverCtrl/leftFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftLegIk
+        weight: 1
+      - path: MainMoverCtrl/right_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/right_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/rightArmIk
+        weight: 1
+      - path: MainMoverCtrl/RightFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/RightHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/rightLegIk
+        weight: 1
+      - path: MainMoverCtrl/root
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin/leftFoot
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin/rightFoot
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist/leftHand
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist/rightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimForward
+      takeName: Take 001
+      firstFrame: 36
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainModel
+        weight: 1
+      - path: MainMoverCtrl
+        weight: 1
+      - path: MainMoverCtrl/BodyCtrl
+        weight: 1
+      - path: MainMoverCtrl/left_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/left_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/leftArmIk
+        weight: 1
+      - path: MainMoverCtrl/leftFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftLegIk
+        weight: 1
+      - path: MainMoverCtrl/right_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/right_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/rightArmIk
+        weight: 1
+      - path: MainMoverCtrl/RightFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/RightHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/rightLegIk
+        weight: 1
+      - path: MainMoverCtrl/root
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin/leftFoot
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin/rightFoot
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist/leftHand
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist/rightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimDown45
+      takeName: Take 001
+      firstFrame: 38
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainModel
+        weight: 1
+      - path: MainMoverCtrl
+        weight: 1
+      - path: MainMoverCtrl/BodyCtrl
+        weight: 1
+      - path: MainMoverCtrl/left_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/left_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/leftArmIk
+        weight: 1
+      - path: MainMoverCtrl/leftFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftLegIk
+        weight: 1
+      - path: MainMoverCtrl/right_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/right_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/rightArmIk
+        weight: 1
+      - path: MainMoverCtrl/RightFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/RightHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/rightLegIk
+        weight: 1
+      - path: MainMoverCtrl/root
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin/leftFoot
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin/rightFoot
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist/leftHand
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist/rightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AimDown
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainModel
+        weight: 1
+      - path: MainMoverCtrl
+        weight: 1
+      - path: MainMoverCtrl/BodyCtrl
+        weight: 1
+      - path: MainMoverCtrl/left_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/left_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/leftArmIk
+        weight: 1
+      - path: MainMoverCtrl/leftFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/leftLegIk
+        weight: 1
+      - path: MainMoverCtrl/right_elbow_locator
+        weight: 1
+      - path: MainMoverCtrl/right_knee_locator
+        weight: 1
+      - path: MainMoverCtrl/rightArmIk
+        weight: 1
+      - path: MainMoverCtrl/RightFootCtrl
+        weight: 1
+      - path: MainMoverCtrl/RightHandCtrl
+        weight: 1
+      - path: MainMoverCtrl/rightLegIk
+        weight: 1
+      - path: MainMoverCtrl/root
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin
+        weight: 1
+      - path: MainMoverCtrl/root/leftLeg/leftShin/leftFoot
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin
+        weight: 1
+      - path: MainMoverCtrl/root/rightLeg/rightShin/rightFoot
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/leftArm/leftWrist/leftHand
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist
+        weight: 1
+      - path: MainMoverCtrl/root/shoulder/rightArm/rightWrist/rightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .25
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 

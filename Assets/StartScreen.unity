@@ -768,6 +768,10 @@ MonoBehaviour:
   CurrentSelectionIndex: 0
   CurrentSelectionGroupIndex: 0
   SelectionInputCooldown: .100000001
+  sfxNavigation: {fileID: 8300000, guid: 2b17cb68a6c8cc84a8bae0b83b8cd695, type: 3}
+  sfxNavigationVolume: .699999988
+  sfxConfirm: {fileID: 8300000, guid: bbc2224d20e94f34f82c5d4149e72506, type: 3}
+  sfxConfirmVolume: .699999988
 --- !u!114 &1396338770
 MonoBehaviour:
   m_ObjectHideFlags: 0

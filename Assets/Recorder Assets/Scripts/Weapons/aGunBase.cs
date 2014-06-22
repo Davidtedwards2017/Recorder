@@ -12,17 +12,27 @@ public abstract class aGunBase : MonoBehaviour {
     public float sfxFireVolume;
 	public Transform BulletPrefab;
 	public float fireDelay;
+
+    private Vector3 aimDirection;
 	
 	// Use this for initialization
 	protected void Awake () 
 	{
 		Socket = transform.Find("Gun_Socket");
+
+       // arm = transform.root.FindChild("rightArm").transform;
+
 	}
 
+   
 	public virtual void SetGunDirection(Vector3 direction)
 	{
 		direction = direction.normalized;
 		transform.LookAt(transform.position + (direction));
+
+
+
+        //aimDirection = direction;
 	}
 
 	public virtual void Fire(bool pressed)
