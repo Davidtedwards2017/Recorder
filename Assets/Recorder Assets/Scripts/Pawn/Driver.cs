@@ -110,8 +110,8 @@ namespace PawnFramework
 
             Vector3 vec = PlayerGamepadInput.GetInputDirection (playerInfo.playerNum);
 			
-				if (vec == Vector3.zero)
-					vec = Pawn.FacingDirection;
+			if (vec == Vector3.zero)
+				vec = Pawn.FacingDirection;
         
 			vec = GetAdjustedAim(vec);
 
@@ -151,17 +151,16 @@ namespace PawnFramework
 
 		private Vector3 GetAdjustedAim(Vector3 vect)
 		{
-			bool above = (vect.y >= 0);
-			float angle = Vector3.Angle(vect, transform.right);
+            bool right = (vect.x >= 0);
+			float angle = Vector3.Angle(vect, Vector3.up);
 
 			angle = AimSnapAngle * (float)Mathf.Round(angle / (AimSnapAngle));
 
-			if(!above)
+            if(right)
 				angle *= -1;
 
-			Vector3 newVect = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+            Vector3 newVect = Quaternion.AngleAxis(angle, new Vector3(0,0,1)) * Vector3.up;
 
-			//convert back to vector
 			return newVect;
 		}
 

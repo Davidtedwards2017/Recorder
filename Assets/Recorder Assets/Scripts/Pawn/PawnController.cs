@@ -32,7 +32,8 @@ public class PawnController : MonoBehaviour {
 	private aGunBase m_gun;
 
     public TeamInfo teamInfo;
-	//public int team;
+	
+    private Animator animator;
 
     public Vector3 FacingDirection;
 
@@ -71,6 +72,7 @@ public class PawnController : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
+        animator = GetComponent<Animator>();
 		motor = GetComponent<CharacterMotor>();
 		motor.SetControllable(false);
 	}
@@ -78,7 +80,7 @@ public class PawnController : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		//if game is paused
+        //if game is paused
 		if(Time.deltaTime <= 0)
 			return;
 
@@ -117,21 +119,38 @@ public class PawnController : MonoBehaviour {
 		//directionVector.z = 0; //clamp for 2d movement
 		motor.inputMoveDirection = directionVector;
 		motor.inputJump = GetJump();
-		
+
+        animator.SetFloat("Speed", directionVector.sqrMagnitude);
+      		
 		// Set rotation to the move direction	
 		if (autoRotate && directionVector.sqrMagnitude > 0.01)
 		{
-			Vector3 newForward = ConstantSlerp(transform.forward, directionVector, maxRotationSpeed * Time.deltaTime);
-			newForward = ProjectOntoPlane(newForward, transform.up);
+            Vector3 newForward = directionVector;//ConstantSlerp(transform.forward, directionVector, maxRotationSpeed * Time.deltaTime);
+            newForward = ProjectOntoPlane(newForward, transform.up);
 			transform.rotation = Quaternion.LookRotation(newForward, transform.up);
 		}
 
 		if(gun != null)
 		{
-			gun.SetGunDirection(GetAimDirection());
+
+            Vector3 aimDir = GetAimDirection();
+            gun.SetGunDirection(aimDir);
+            //animator.SetInteger("AimAngle", 0);
+
+            float angle = Vector3.Angle(transform.forward, aimDir);
+
+            if(aimDir.y < 0.0f)
+            {
+                angle *= -1;
+            }
+
+            animator.SetFloat("Angle", angle);
 
             gun.Fire(GetFire());
 		}
+
+        animator.SetBool("Grounded", motor.grounded);
+        animator.SetBool("Jumping", motor.jumping.jumping);
 
 		if(bPlaying && GetPawnType() != PawnTypeEnum.HUSK)
 		{
